@@ -1,12 +1,29 @@
-const character = '🤑';
-const timesToRepeat = 10;
+const A = "A";
+let F;
 
-let answer = '';
-
-for (let i = 0; i < timesToRepeat; i++) {
-  answer = answer + character;
+function doStuff(B) {
+  console.log(B);
+  const C = "C";
+  let H = "H";
+  if (1 + 1 === 2) {
+    const D = "D";
+    H = "something else";
+  }
+  console.log(D); // 
+  console.log(H); // H
+  F = "F";
 }
 
-// console.log("".padStart(timesToRepeat, character)); - super cleaver
+let E = 0;
+while (E < 3) {
+  E++;
+  console.log(A); // A
+  const G = "G"; 
+}
+console.log(E); // 
+console.log(G); // 
 
-console.log(answer);
+doStuff("B"); // B
+console.log(B); 
+console.log(C); // 
+console.log(F); // 
