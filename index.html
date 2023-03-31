@@ -2,94 +2,53 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coffee Masters</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Master</title>
+    <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
-    <nav class="main-nav">
-      <h1 class="brand">
-        <img src="https://btholt.github.io/complete-intro-to-web-dev-v3/images/coffee_masters_logo.png"
-          alt="coffee masters logo" class="logo" />
-        Coffee Masters
-      </h1>
-    </nav>
-    <div class="page">
-      <section class="order box">
-        <h2 class="box-title">ITEMS</h2>
-        <ul class="items">
-          <li class="item">
-            <div class="item-quantity">1x</div>
-            <div class="item-title">Cappucino</div>
-            <div class="item-price">$6.00</div>
-            <ul class="item-options-list">
-              <li class="item-option">Light Foam</li>
-            </ul>
-          </li>
-          <li class="item">
-            <div class="item-quantity">1x</div>
-            <div class="item-title">Cappucino</div>
-            <div class="item-price">$7.90</div>
-            <ul class="item-options-list">
-              <li class="item-option">Almond Milk</li>
-              <li class="item-option">Double Espresso Shot</li>
-            </ul>
-          </li>
-          <li class="item">
-            <div class="item-quantity">1x</div>
-            <div class="item-title">Croissant</div>
-            <div class="item-price">$5.37</div>
-            <ul class="item-options-list">
-              <li class="item-option">Butter</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-      <section class="payment">
-        <div class="name-box box">
-          <h2 class="box-title">NAME</h2>
-          <div class="input-group">
-            <label class="user-input-label" for="name">Name for order</label>
-            <input type="text" class="user-input" id="name" />
-          </div>
-        </div>
-        <div class="cc-box box">
-          <h2 class="box-title">PAYMENT</h2>
-          <div class="input-group">
-            <label class="user-input-label" for="cc">Card number</label>
-            <input type="text" class="user-input" id="cc" />
-          </div>
-          <div class="input-group">
-            <label class="user-input-label" for="ccv">CCV number</label>
-            <input type="text" class="user-input short-input" id="ccv" />
-          </div>
-        </div>
-      </section>
-      <section class="total">
-        <table class="totals-table">
-          <tbody>
-            <tr>
-              <td>Subtotal:</td>
-              <td>$19.27</td>
-            </tr>
-            <tr>
-              <td>Tax:</td>
-              <td>$0.96</td>
-            </tr>
-            <tr class="final-totals">
-              <td>Total:</td>
-              <td>$20.23</td>
-            </tr>
-          </tbody>
-        </table>
-        <button class="checkout" type="button">Place order</button>
-      </section>
+    <header class="navbar">
+      <h1 class="brand">Word Masters</h1>
+    </header>
+    <div class="info-bar">
+      <div class="spiral">🌀</div>
     </div>
+    <div class="scoreboard">
+      <div class="scoreboard-letter" id="letter-0"></div>
+      <div class="scoreboard-letter" id="letter-1"></div>
+      <div class="scoreboard-letter" id="letter-2"></div>
+      <div class="scoreboard-letter" id="letter-3"></div>
+      <div class="scoreboard-letter" id="letter-4"></div>
+      <div class="scoreboard-letter" id="letter-5"></div>
+      <div class="scoreboard-letter" id="letter-6"></div>
+      <div class="scoreboard-letter" id="letter-7"></div>
+      <div class="scoreboard-letter" id="letter-8"></div>
+      <div class="scoreboard-letter" id="letter-9"></div>
+      <div class="scoreboard-letter" id="letter-10"></div>
+      <div class="scoreboard-letter" id="letter-11"></div>
+      <div class="scoreboard-letter" id="letter-12"></div>
+      <div class="scoreboard-letter" id="letter-13"></div>
+      <div class="scoreboard-letter" id="letter-14"></div>
+      <div class="scoreboard-letter" id="letter-15"></div>
+      <div class="scoreboard-letter" id="letter-16"></div>
+      <div class="scoreboard-letter" id="letter-17"></div>
+      <div class="scoreboard-letter" id="letter-18"></div>
+      <div class="scoreboard-letter" id="letter-19"></div>
+      <div class="scoreboard-letter" id="letter-20"></div>
+      <div class="scoreboard-letter" id="letter-21"></div>
+      <div class="scoreboard-letter" id="letter-22"></div>
+      <div class="scoreboard-letter" id="letter-23"></div>
+      <div class="scoreboard-letter" id="letter-24"></div>
+      <div class="scoreboard-letter" id="letter-25"></div>
+      <div class="scoreboard-letter" id="letter-26"></div>
+      <div class="scoreboard-letter" id="letter-27"></div>
+      <div class="scoreboard-letter" id="letter-28"></div>
+      <div class="scoreboard-letter" id="letter-29"></div>
+    </div>
+    <script src="./word-masters.js"></script>
   </body>
 
 </html>

@@ -3,178 +3,144 @@
 }
 
 body {
+	/* a nice font that uses a user's built in font */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+	color: #333;
 	margin: 0;
 	padding: 0;
-	background-color: #efefef;
-	font-family: 'Open Sans', sans-serif;
 }
 
-.page {
-	display: grid;
-	row-gap: 30px;
-	column-gap: 30px;
-	width: 100%;
-	padding: 30px;
-	margin: 0 auto;
-	grid-template-areas:
-		'order payment'
-		'total total';
-	grid-template-columns: 1fr 1fr;
-}
-
-.main-nav {
-	background-color: #43281c;
-	color: #fbf2c0;
-	font-size: 16px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: normal;
-}
-
-.logo {
-	height: 25px;
-	position: relative;
-	top: 3px;
-}
-
-.box {
-	background-color: #eee1d5;
-	border-radius: 5px;
-	box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+.navbar {
+	border-bottom: 2px solid #333;
 	padding: 15px;
-	margin-bottom: 20px;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.brand {
+	font-size: 30px;
+}
+
+.scoreboard {
+	max-width: 295px;
 	width: 100%;
-}
-
-.box-title {
-	color: #885a2d;
-	font-weight: normal;
-	font-size: 16px;
-}
-
-.order {
-	grid-area: order;
-}
-
-.payment {
-	grid-area: payment;
-}
-
-.total {
-	grid-area: total;
-}
-
-.items {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.item {
-	border-bottom: 2px solid #ddb892;
+	margin: 10px auto;
 	display: grid;
-
-	padding: 10px 0;
-
-	grid-template-columns: 1fr 8fr 1fr;
-	grid-template-areas:
-		'quantity title   price'
-		'quantity options price';
-
-	row-gap: 8px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	row-gap: 10px;
+	column-gap: 5px;
 }
 
-.item:last-child {
-	border-bottom: none;
-}
-
-.item-quantity {
-	grid-area: quantity;
-}
-
-.item-title {
-	grid-area: title;
+.scoreboard-letter {
+	height: 45px;
+	width: 45px;
+	font-size: 30px;
+	text-transform: uppercase;
+	border: 3px solid #ccc;
 	font-weight: bold;
-}
-
-.item-price {
-	grid-area: price;
-	font-weight: bold;
-}
-
-.item-options-list {
-	grid-area: options;
-	color: #b08968;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	font-size: 14px;
-}
-
-.item-option {
-	margin-bottom: 5px;
-}
-
-.input-group {
-	position: relative;
-	margin-bottom: 20px;
-}
-
-.user-input {
-	background-color: rgba(0, 0, 0, 0);
-	border: 2px #885a2d solid;
-	padding: 8px;
-	border-radius: 100px;
-	width: 100%;
-	text-indent: 18px;
-	font-size: 18px;
-}
-
-.user-input-label {
-	color: #885a2d;
-	background-color: #eee1d5;
-	font-size: 11px;
-	position: absolute;
-	left: 25px;
-	top: -7px;
-	padding: 0 2px;
-}
-
-.short-input {
-	max-width: 200px;
-}
-
-.total {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
-.totals-table {
-	width: 100%;
-	max-width: 500px;
-	margin-bottom: 30px;
+.correct {
+	background-color: darkgreen;
+	color: white;
 }
 
-.totals-table td {
-	padding: 10px;
+.close {
+	background-color: goldenrod;
+	color: white;
 }
 
-.totals-table td:last-child {
-	text-align: right;
+.wrong {
+	background-color: #888;
+	color: white;
 }
 
-.final-totals {
-	font-weight: bold;
+.invalid {
+	animation: flash 1s;
 }
 
-.checkout {
-	background-color: #deb993;
-	border: none;
-	padding: 10px 30px;
-	width: 100%;
-	border-radius: 100px;
-	font-size: 16px;
+/* flashes red border and then fades back to gray */
+@keyframes flash {
+	5% {
+		border-color: crimson;
+	}
+
+	100% {
+		border-color: #ccc;
+	}
+}
+
+.spiral {
+	font-size: 40px;
+	animation: spin 1.5s linear infinite;
+}
+
+/* rotates clockwise indefinitely */
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* visibility hidden means the item is still there and taking up space
+   but just not shown. display: none doesn't take up space */
+.hidden {
+	visibility: hidden;
+}
+
+.info-bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* winner animation */
+
+@keyframes rainbow {
+	100%,
+	0% {
+		color: rgb(255, 0, 0);
+	}
+	8% {
+		color: rgb(255, 127, 0);
+	}
+	16% {
+		color: rgb(255, 255, 0);
+	}
+	25% {
+		color: rgb(127, 255, 0);
+	}
+	33% {
+		color: rgb(0, 255, 0);
+	}
+	41% {
+		color: rgb(0, 255, 127);
+	}
+	50% {
+		color: rgb(0, 255, 255);
+	}
+	58% {
+		color: rgb(0, 127, 255);
+	}
+	66% {
+		color: rgb(0, 0, 255);
+	}
+	75% {
+		color: rgb(127, 0, 255);
+	}
+	83% {
+		color: rgb(255, 0, 255);
+	}
+	91% {
+		color: rgb(255, 0, 127);
+	}
+}
+
+.winner {
+	animation: rainbow 4s infinite linear;
 }
