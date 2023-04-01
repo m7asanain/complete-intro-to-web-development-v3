@@ -9,6 +9,7 @@ async function init() {
   const res = await fetch("https://words.dev-apis.com/word-of-the-day");
   const resObj = await res.json();
   const word = resObj.word.toUpperCase();
+  const wordParts = word.split("");
   setLoading(false);
 
   console.log(word);
@@ -34,6 +35,30 @@ async function init() {
 
     // TODO do all the marking as "corrent", "close", "wrong"
 
+    const guessParts = currentGuess.split("");
+    const map = makeMap(wordParts);
+    console.log(map);
+
+    for (let i = 0; i < ANSWER_LENGTH; i++) {
+      // mark as correct
+      if (guessParts[i] === wordParts[i]) {
+        letters[currentRow * ANSWER_LENGTH + i].classList.add("correct");
+        map[guessParts[i]]--;
+      }
+    }
+
+    for (let i = 0; i < ANSWER_LENGTH; i++) {
+      if (guessParts[i] === wordParts[i]) {
+        // do nothing, we already did it
+      } else if (wordParts.includes(guessParts[i]) && guessParts[i] > 0) {
+        // make as close
+        letters[currentRow * ANSWER_LENGTH + i].classList.add("close");
+        map[guessParts[i]]--;
+      } else {
+        letters[currentRow * ANSWER_LENGTH + i].classList.add("wrong");
+      }
+    }
+
     // TODO did they win or lose?
 
     currentRow++;
@@ -47,8 +72,6 @@ async function init() {
   
   document.addEventListener('keydown', function hundleKeyPress(event) {
     const action = event.key;
-
-    console.log(action);
 
     if (action === "Enter") {
       commit();
@@ -68,6 +91,20 @@ function isLetter(letter) {
 
 function setLoading(isLoding) {
   loadingDiv.classList.toggle('show', isLoding);
+}
+
+function makeMap (array) {
+  const obj = {};
+  for (let i = 0; i < array.length; i++) {
+    const letter = array[i];
+    // if its exist reture..
+    if (obj[letter]) {
+      obj[letter]++;
+    } else {
+      obj[letter] = 1;
+    }
+  }
+  return obj;
 }
 
 init();
