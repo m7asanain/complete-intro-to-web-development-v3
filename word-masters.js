@@ -37,6 +37,26 @@ async function init() {
     
     // TODO validate the word
 
+    isLoding = true;
+    setLoading(true);
+
+    const res = await fetch("https://words.dev-apis.com/validate-word", {
+      method: "POST",
+      body: JSON.stringify({ word: currentGuess })
+    });
+
+    const resObj = await res.json();
+    const validWord = resObj.validWord;
+    // const { validWord } = resObj; // same above line
+
+    isLoding = false;
+    setLoading(false);
+
+    if (!validWord) {
+      markInValidWord();
+      return; // if its not found -> the hightligh going to be on the next line
+    }
+
     // TODO do all the marking as "corrent", "close", "wrong"
 
     const guessParts = currentGuess.split("");
@@ -67,6 +87,7 @@ async function init() {
     
     if (currentGuess === word) { // win condition
       alert("You win!");
+      document.querySelector(".brand").classList.add("winner");
       done = true;
       return;
     } else if (currentRow == ROUNDS) { // lose contition
@@ -80,6 +101,18 @@ async function init() {
   function backspace() {
     currentGuess = currentGuess.substring(0, currentGuess.length - 1);
     letters[currentRow * ANSWER_LENGTH + currentGuess.length].innerText = "";
+  }
+
+  function markInValidWord() {
+    // alert("not a valid word"); // totally valid
+
+    for (let i = 0; i < ANSWER_LENGTH; i++) {
+      letters[currentRow * ANSWER_LENGTH + i].classList.remove("invalid");
+
+      setTimeout(function() {
+        letters[currentRow * ANSWER_LENGTH + i].classList.add("invalid");
+      }, 10);
+    }
   }
   
   document.addEventListener('keydown', function hundleKeyPress(event) {
