@@ -22,7 +22,27 @@ function handleNumber(number) {
 // a placeholder function or class that doesn't do anything yet
 
 function handleSymbol(symbol) {
-  console.log('symbol');
+  switch (symbol) {
+    case 'C':
+      buffer = 0;
+      break;
+    case '=':
+      console.log('equals');
+      break;
+    case '←':
+      if (buffer.length === 1) {
+        buffer = "0";
+      } else {
+        buffer = buffer.substring(0, buffer.length - 1);
+      }
+      break;
+    case '+':
+    case '-':
+    case '÷':
+    case '×':
+      console.log('math symbols');
+      break;
+  }
 }
 
 function init() {
